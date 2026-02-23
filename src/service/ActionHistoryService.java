@@ -8,22 +8,34 @@ public class ActionHistoryService {
     private ArrayDeque<String> actions = new ArrayDeque<>();
 
     public void initializeActions() {
-        // TODO: Add 4 actions
+        actions.addLast("Submitted Assignment");
+        actions.addLast("Dropped Course");
+        actions.addLast("Registered Course");
+        actions.addLast("Updated Profile");
     }
 
     public void undoLastAction() {
-        // TODO: Remove last action
+        if (!actions.isEmpty()) {
+            actions.removeLast();
+        }
     }
 
     public void addRequestedTranscript() {
-        // TODO: Add "Requested Transcript"
+        actions.addLast("Requested Transcript");
     }
 
     public void showFirstAndLast() {
-        // TODO: Print first and last action
+        System.out.println("First: " + actions.getFirst());
+        System.out.println("Last: " + actions.getLast());
     }
 
     public void printHistory() {
-        // TODO: Iterate through history
+        for (Iterator<String> it = actions.iterator(); it.hasNext(); ) {
+            System.out.println("  • " + it.next());
+        }
+    }
+
+    public ArrayDeque<String> getActions() {
+        return actions;
     }
 }

@@ -25,25 +25,47 @@ public class Main {
             System.out.print("Choose option: ");
 
             choice = scanner.nextInt();
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
-                    // TODO
+                    studentService.initializeStudents();
+                    studentService.removeLowGPA();
+                    studentService.findHighestGPA();
+                    studentService.insertAtIndex();
+                    studentService.printStudents();
                     break;
                 case 2:
-                    // TODO
+                    appointmentService.initializeAppointments();
+                    appointmentService.cancelLast();
+                    appointmentService.showFirstAndLast();
+                    appointmentService.printAppointments();
                     break;
                 case 3:
-                    // TODO
+                    issueService.initializeIssues();
+                    issueService.showMostUrgent();
+                    issueService.resolveIssues();
+                    issueService.printRemainingIssues();
                     break;
                 case 4:
-                    // TODO
+                    actionService.initializeActions();
+                    actionService.undoLastAction();
+                    actionService.addRequestedTranscript();
+                    actionService.showFirstAndLast();
+                    actionService.printHistory();
                     break;
                 case 5:
-                    // TODO
+                    System.out.print("Issue description: ");
+                    String desc = scanner.nextLine();
+                    System.out.print("Urgency level (1-5, 1 = most urgent): ");
+                    int urgency = scanner.nextInt();
+                    scanner.nextLine();
+                    issueService.addNewIssue(desc, urgency);
+                    System.out.println("Issue added successfully");
                     break;
                 case 6:
-                    // TODO
+                    actionService.undoLastAction();
+                    System.out.println("Last action undone");
                     break;
                 case 7:
                     System.out.println("Exiting... 👋");
